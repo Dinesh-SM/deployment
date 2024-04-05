@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        lable 'work'
+        label 'CDO'
     }
     stages {
         stage('docker build') {
