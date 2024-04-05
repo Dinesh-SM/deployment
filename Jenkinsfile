@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('checkout') {
-            steps {
-                checkout scmGit(branches: [[name: '*/deploymwntgreen']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Dinesh-SM/deployment.git']])
-            }
-        }
         stage('docker build') {
             steps {
                 sh 'docker ps'
