@@ -12,8 +12,8 @@ pipeline {
                 sh 'docker stop $(docker ps -q) && docker rm $(docker ps -aq)'
                 sh 'docker ps'
                 sh 'docker rmi $(docker images -q)'
-                sh 'docker build -t my-app-image .'
-                sh 'docker run -d -p 92:80 my-app-image'
+                sh 'docker build -t green-app-image .'
+                sh 'docker run -d -p 93:80 green-app-image'
             }
         }
     }
