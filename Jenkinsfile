@@ -1,12 +1,11 @@
 pipeline {
-    agent {
-        label 'CDO'
-    }
+    agent any
     stages {
         stage('docker build') {
             steps {
                 sh 'docker ps'
-                sh 'docker stop $(docker ps -q) && docker rm $(docker ps -aq)'
+                sh 'docker ps -q | xargs docker stop || true'
+                sh 'docker ps -aq | xargs docker rm || true'
                 sh 'docker ps'
                 sh 'docker rmi $(docker images -q)'
                 sh 'docker build -t green-app-image .'
